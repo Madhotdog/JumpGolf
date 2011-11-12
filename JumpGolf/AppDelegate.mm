@@ -10,8 +10,8 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
 #import "RootViewController.h"
+#import "JumpingTestLayer.h"
 
 @implementation AppDelegate
 
@@ -109,9 +109,11 @@
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
+    
+    
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene:[JumpingTestLayer scene]];
 }
 
 
