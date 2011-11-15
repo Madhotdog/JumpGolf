@@ -6,8 +6,16 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "CCSprite.h"
+#import "Box2DSprite.h"
+#import "Constants.h"
 
-@interface Rapid : CCSprite
+
+
+
+@interface Rapid : Box2DSprite {
+    b2World *world;
+}
+
+- (id)initWithWorld:(b2World *)world atLocation:(CGPoint)location;
 
 @end

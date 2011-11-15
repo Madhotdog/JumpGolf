@@ -9,13 +9,20 @@
 #import "cocos2d.h"
 #import "GLES-Render.h"
 #import "Constants.h"
+#import "Box2D.h"
+
+@class Rapid;
 
 
 @interface JumpingTestLayer : CCLayer {
     b2World * world;
     GLESDebugDraw * debugDraw;
     CCSpriteBatchNode *sceneSpriteBatchNode;
-    CCSequence *sequence;
+    b2Body * groundBody;
+    Rapid *rapid;
+    b2MouseJoint * mouseJoint;
+
+    
 }
 
 + (id)scene;

@@ -6,9 +6,21 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef JumpGolf_Constants_h
-#define JumpGolf_Constants_h
 #define PTM_RATIO ((UI_USER_INTERFACE_IDIOM() ==  UIUserInterfaceIdiomPad) ? 100.0 : 50.0)
 
+typedef enum {
+    kObjectTypeNone,
+    kRapidType,
+    kGroundType,
+    kFlagType,
+    kHoleType,
+} GameObjectType;
 
-#endif
+typedef enum {
+    kLanding,
+    kJumping,
+    kSpinning,
+    kStanding,
+} CharStates;
+
+
