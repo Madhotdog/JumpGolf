@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F153805147314F1000F8A9A /* JumpingScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F153804147314F1000F8A9A /* JumpingScene.mm */; };
+		4F15380D14731A4F000F8A9A /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F15380C14731A4E000F8A9A /* GameCharacter.m */; };
+		4F15381014731D24000F8A9A /* Rapid.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F15380F14731D24000F8A9A /* Rapid.plist */; };
 		4F28CD7B1472EC6F00E6BE4D /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F28CD7A1472EC6F00E6BE4D /* GameObject.m */; };
 		4F360201146DBF9000A4C48E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360200146DBF9000A4C48E /* QuartzCore.framework */; };
 		4F360203146DBF9000A4C48E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360202146DBF9000A4C48E /* OpenGLES.framework */; };
@@ -172,6 +175,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F153803147314F1000F8A9A /* JumpingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpingScene.h; sourceTree = "<group>"; };
+		4F153804147314F1000F8A9A /* JumpingScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JumpingScene.mm; sourceTree = "<group>"; };
+		4F15380B14731A4E000F8A9A /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
+		4F15380C14731A4E000F8A9A /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
+		4F15380F14731D24000F8A9A /* Rapid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rapid.plist; sourceTree = "<group>"; };
 		4F28CD791472EC6F00E6BE4D /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		4F28CD7A1472EC6F00E6BE4D /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		4F3601FC146DBF9000A4C48E /* JumpGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -519,6 +527,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F15380E14731D05000F8A9A /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				4F15380F14731D24000F8A9A /* Rapid.plist */,
+			);
+			name = Plists;
+			sourceTree = "<group>";
+		};
 		4F3601F1146DBF9000A4C48E = {
 			isa = PBXGroup;
 			children = (
@@ -560,13 +576,18 @@
 				4FD194CD1471D17800F6FE4E /* Sprites */,
 				4F3603E9146DC0EE00A4C48E /* JumpingTestLayer.h */,
 				4F3603EA146DC0EE00A4C48E /* JumpingTestLayer.mm */,
+				4F153803147314F1000F8A9A /* JumpingScene.h */,
+				4F153804147314F1000F8A9A /* JumpingScene.mm */,
 				4F28CD791472EC6F00E6BE4D /* GameObject.h */,
 				4F28CD7A1472EC6F00E6BE4D /* GameObject.m */,
+				4F15380B14731A4E000F8A9A /* GameCharacter.h */,
+				4F15380C14731A4E000F8A9A /* GameCharacter.m */,
 				4F3603D8146DBF9400A4C48E /* RootViewController.h */,
 				4F3603D9146DBF9400A4C48E /* RootViewController.m */,
 				4F3603DE146DBF9400A4C48E /* GLES-Render.h */,
 				4F3603DF146DBF9400A4C48E /* GLES-Render.mm */,
 				4F3603E1146DBF9400A4C48E /* GameConfig.h */,
+				4F15380E14731D05000F8A9A /* Plists */,
 				4F360211146DBF9000A4C48E /* Resources */,
 				4F360225146DBF9000A4C48E /* libs */,
 				4F3603D1146DBF9400A4C48E /* Supporting Files */,
@@ -1131,6 +1152,7 @@
 				4F3603FC146DCD7000A4C48E /* rapid_anim3.png in Resources */,
 				4F3603FD146DCD7000A4C48E /* rapid_anim4.png in Resources */,
 				4F3603FE146DCD7000A4C48E /* rapid_anim5.png in Resources */,
+				4F15381014731D24000F8A9A /* Rapid.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,6 +1300,8 @@
 				4F3603F0146DC80700A4C48E /* Rapid.mm in Sources */,
 				4FD194CC1471D16500F6FE4E /* Box2DSprite.mm in Sources */,
 				4F28CD7B1472EC6F00E6BE4D /* GameObject.m in Sources */,
+				4F153805147314F1000F8A9A /* JumpingScene.mm in Sources */,
+				4F15380D14731A4F000F8A9A /* GameCharacter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

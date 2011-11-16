@@ -29,12 +29,6 @@
     world = new b2World(gravity, doSleep);            
 }
 
-+ (id)scene {
-    CCScene *scene = [CCScene node];
-    JumpingTestLayer *layer = [self node];
-    [scene addChild:layer];
-    return scene;
-}
 
 -(void)setupDebugDraw {
     debugDraw = new GLESDebugDraw(PTM_RATIO *[[CCDirector sharedDirector] contentScaleFactor]);
@@ -92,12 +86,13 @@
            // CC_RADIANS_TO_DEGREES(b->GetAngle() * -1);
         }        
     }
+     
     
-    /*CCArray *listOfGameObjects = [sceneSpriteBatchNode children]; 
+    CCArray *listOfGameObjects = [sceneSpriteBatchNode children]; 
     for (GameCharacter *tempChar in listOfGameObjects) { 
         [tempChar updateStateWithDeltaTime:dt 
                       andListOfGameObjects:listOfGameObjects]; 
-    } */
+    } 
    
 }
 

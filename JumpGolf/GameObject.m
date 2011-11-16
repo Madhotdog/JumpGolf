@@ -90,7 +90,8 @@
          [[CCSpriteFrameCache sharedSpriteFrameCache] 
           spriteFrameByName:frameName]];
     }
-    
+    //debug
+    CCLOG(@"Animation Loaded:%@",animationName);
     return animationToReturn;
 }
 

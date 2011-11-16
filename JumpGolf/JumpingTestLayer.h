@@ -25,6 +25,6 @@
     
 }
 
-+ (id)scene;
+
 
 @end
