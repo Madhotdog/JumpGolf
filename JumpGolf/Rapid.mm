@@ -38,18 +38,13 @@
      self.contentSize.height/2/PTM_RATIO/4);  
 */
     b2CircleShape shape;
-    shape.m_radius =self.contentSize.width/2/PTM_RATIO/4,
+    shape.m_radius =self.contentSize.width/2/PTM_RATIO/2;
     fixtureDef.shape = &shape;
     
-
     
-
-    
-    fixtureDef.shape = &shape;
-    
-    fixtureDef.density = 1.0;
-    fixtureDef.friction = 0.2;
-    fixtureDef.restitution = 0.5;
+    fixtureDef.density = 0.5;
+    fixtureDef.friction = 0.01;
+    fixtureDef.restitution = 0.3;
     
     body->CreateFixture(&fixtureDef);  
     
@@ -64,21 +59,17 @@
         case kStanding:
             [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]
                                   spriteFrameByName:@"rapid_anim1.png"]];
-            //CCLOG(@"State changed to:%@",newState);
             break;            
         case kJumping:
             action = [CCAnimate actionWithAnimation:jumpingAnim restoreOriginalFrame:NO];
-            //CCLOG(@"State changed to:%@",newState);
             break;
             
         case kSpinning:
             action = [CCAnimate actionWithAnimation:spinningAnim restoreOriginalFrame:NO];
-            //CCLOG(@"State changed to:%@",newState);
             break;
             
         case kLanding:
             action = [CCAnimate actionWithAnimation:landingAnim restoreOriginalFrame:NO];
-            //CCLOG(@"State changed to:%@",newState);
             break;
             
             
@@ -98,12 +89,6 @@
         return;
     }
     
-    /*for (GameCharacter *character in listOfGameObjects) {
-        // This is Ole the rapid himself
-        // No need to check collision with one's self
-        if ([character tag] == kRapidType) 
-            continue;
-    } */
         
         if((self.charState == kLanding) || (self.charState ==kJumping) || 
            (self.charState == kSpinning) || (self.charState == kStanding)) {
@@ -116,9 +101,14 @@
                 [self changeState:kSpinning];
                 return;
             }
-            else if ((body->IsAwake() == FALSE) && charState == kSpinning){
+            else if ((body->IsAwake() == FALSE) && charState == kLanding
+                     && [self numberOfRunningActions] == 0){
                 [self changeState:kStanding];
             }
+            else if ((body->IsAwake() == FALSE) && charState == kSpinning){
+                [self changeState:kLanding];
+            }
+            
             else if (body->IsAwake() == TRUE && [self numberOfRunningActions] == 0){
                 [self changeState:kSpinning];
             }
@@ -147,7 +137,7 @@
         world = theWorld;
         [self setDisplayFrame:[[CCSpriteFrameCache 
                                 sharedSpriteFrameCache] spriteFrameByName:@"rapid_anim1.png"]];
-        self.scale = 0.25;
+        self.scale = 0.5;
         self.flipX = YES;
         charState = kStanding;
         

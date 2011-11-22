@@ -21,6 +21,8 @@
     b2Body * groundBody;
     Rapid *rapid;
     b2MouseJoint * mouseJoint;
+    CCSpriteBatchNode *groundSpriteBatchNode;
+    //CGSize levelSize;
 
     
 }

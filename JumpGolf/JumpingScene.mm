@@ -8,6 +8,7 @@
 
 #import "JumpingScene.h"
 #import "JumpingTestLayer.h"
+#import "JumpingBackground.h"
 
 @implementation JumpingScene
 
@@ -15,8 +16,11 @@
 {
     self = [super init];
     if (self) {
+        JumpingBackground *backgroundLayer = [JumpingBackground node];
+        [self addChild:backgroundLayer];
         JumpingTestLayer *layer = [JumpingTestLayer node];
         [self addChild:layer];
+        //[layer setScale:0.2f];
     }
     
     return self;

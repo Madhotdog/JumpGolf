@@ -10,6 +10,8 @@
 		4F153805147314F1000F8A9A /* JumpingScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F153804147314F1000F8A9A /* JumpingScene.mm */; };
 		4F15380D14731A4F000F8A9A /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F15380C14731A4E000F8A9A /* GameCharacter.m */; };
 		4F15381014731D24000F8A9A /* Rapid.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F15380F14731D24000F8A9A /* Rapid.plist */; };
+		4F1538221474595E000F8A9A /* Level1Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F1538211474595E000F8A9A /* Level1Ground.png */; };
+		4F15382414745ECF000F8A9A /* Level1Ground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F15382314745ECE000F8A9A /* Level1Ground-hd.png */; };
 		4F28CD7B1472EC6F00E6BE4D /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F28CD7A1472EC6F00E6BE4D /* GameObject.m */; };
 		4F360201146DBF9000A4C48E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360200146DBF9000A4C48E /* QuartzCore.framework */; };
 		4F360203146DBF9000A4C48E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360202146DBF9000A4C48E /* OpenGLES.framework */; };
@@ -171,7 +173,18 @@
 		4F3603FC146DCD7000A4C48E /* rapid_anim3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F3603F5146DCD7000A4C48E /* rapid_anim3.png */; };
 		4F3603FD146DCD7000A4C48E /* rapid_anim4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F3603F6146DCD7000A4C48E /* rapid_anim4.png */; };
 		4F3603FE146DCD7000A4C48E /* rapid_anim5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F3603F7146DCD7000A4C48E /* rapid_anim5.png */; };
+		4F6B77B1147C1B810017550E /* Level1-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F6B77AE147C1B810017550E /* Level1-iPad.png */; };
+		4F6B77B2147C1B810017550E /* Level1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F6B77AF147C1B810017550E /* Level1-hd.png */; };
+		4F6B77B3147C1B810017550E /* Level1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F6B77B0147C1B810017550E /* Level1.png */; };
+		4F839A331475C4C3005E09B8 /* rapidSpriteSheetiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A2F1475C4C3005E09B8 /* rapidSpriteSheetiPhone.png */; };
+		4F839A341475C4C3005E09B8 /* rapidSpriteSheetiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A301475C4C3005E09B8 /* rapidSpriteSheetiPhone.plist */; };
+		4F839A351475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A311475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.png */; };
+		4F839A361475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A321475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.plist */; };
+		4F839A3A1475C88C005E09B8 /* JumpingBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F839A391475C88C005E09B8 /* JumpingBackground.m */; };
+		4F839A3D1475C8E1005E09B8 /* placeholderBackgroundiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A3B1475C8E1005E09B8 /* placeholderBackgroundiPhone-hd.png */; };
+		4F839A3E1475C8E1005E09B8 /* placeholderBackgroundiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A3C1475C8E1005E09B8 /* placeholderBackgroundiPhone.png */; };
 		4FD194CC1471D16500F6FE4E /* Box2DSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FD194CB1471D16500F6FE4E /* Box2DSprite.mm */; };
+		4FEFE182147BF1BF003BE5E5 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFE181147BF1BF003BE5E5 /* GameManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +193,8 @@
 		4F15380B14731A4E000F8A9A /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
 		4F15380C14731A4E000F8A9A /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
 		4F15380F14731D24000F8A9A /* Rapid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rapid.plist; sourceTree = "<group>"; };
+		4F1538211474595E000F8A9A /* Level1Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Level1Ground.png; sourceTree = "<group>"; };
+		4F15382314745ECE000F8A9A /* Level1Ground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1Ground-hd.png"; sourceTree = "<group>"; };
 		4F28CD791472EC6F00E6BE4D /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		4F28CD7A1472EC6F00E6BE4D /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		4F3601FC146DBF9000A4C48E /* JumpGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,9 +518,22 @@
 		4F3603F5146DCD7000A4C48E /* rapid_anim3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapid_anim3.png; sourceTree = "<group>"; };
 		4F3603F6146DCD7000A4C48E /* rapid_anim4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapid_anim4.png; sourceTree = "<group>"; };
 		4F3603F7146DCD7000A4C48E /* rapid_anim5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapid_anim5.png; sourceTree = "<group>"; };
+		4F6B77AE147C1B810017550E /* Level1-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-iPad.png"; sourceTree = "<group>"; };
+		4F6B77AF147C1B810017550E /* Level1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-hd.png"; sourceTree = "<group>"; };
+		4F6B77B0147C1B810017550E /* Level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Level1.png; sourceTree = "<group>"; };
+		4F839A2F1475C4C3005E09B8 /* rapidSpriteSheetiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidSpriteSheetiPhone.png; sourceTree = "<group>"; };
+		4F839A301475C4C3005E09B8 /* rapidSpriteSheetiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = rapidSpriteSheetiPhone.plist; sourceTree = "<group>"; };
+		4F839A311475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rapidSpriteSheetiPhone-hd.png"; sourceTree = "<group>"; };
+		4F839A321475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "rapidSpriteSheetiPhone-hd.plist"; sourceTree = "<group>"; };
+		4F839A381475C88C005E09B8 /* JumpingBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpingBackground.h; sourceTree = "<group>"; };
+		4F839A391475C88C005E09B8 /* JumpingBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumpingBackground.m; sourceTree = "<group>"; };
+		4F839A3B1475C8E1005E09B8 /* placeholderBackgroundiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholderBackgroundiPhone-hd.png"; sourceTree = "<group>"; };
+		4F839A3C1475C8E1005E09B8 /* placeholderBackgroundiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderBackgroundiPhone.png; sourceTree = "<group>"; };
 		4FD194CA1471D16500F6FE4E /* Box2DSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DSprite.h; sourceTree = "<group>"; };
 		4FD194CB1471D16500F6FE4E /* Box2DSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DSprite.mm; sourceTree = "<group>"; };
 		4FD194D21471DA5400F6FE4E /* SimpleQueryCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleQueryCallback.h; sourceTree = "<group>"; };
+		4FEFE180147BF1BF003BE5E5 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		4FEFE181147BF1BF003BE5E5 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -576,6 +604,8 @@
 				4FD194CD1471D17800F6FE4E /* Sprites */,
 				4F3603E9146DC0EE00A4C48E /* JumpingTestLayer.h */,
 				4F3603EA146DC0EE00A4C48E /* JumpingTestLayer.mm */,
+				4F839A381475C88C005E09B8 /* JumpingBackground.h */,
+				4F839A391475C88C005E09B8 /* JumpingBackground.m */,
 				4F153803147314F1000F8A9A /* JumpingScene.h */,
 				4F153804147314F1000F8A9A /* JumpingScene.mm */,
 				4F28CD791472EC6F00E6BE4D /* GameObject.h */,
@@ -598,6 +628,17 @@
 		4F360211146DBF9000A4C48E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F6B77AE147C1B810017550E /* Level1-iPad.png */,
+				4F6B77AF147C1B810017550E /* Level1-hd.png */,
+				4F6B77B0147C1B810017550E /* Level1.png */,
+				4F15382314745ECE000F8A9A /* Level1Ground-hd.png */,
+				4F1538211474595E000F8A9A /* Level1Ground.png */,
+				4F839A3B1475C8E1005E09B8 /* placeholderBackgroundiPhone-hd.png */,
+				4F839A3C1475C8E1005E09B8 /* placeholderBackgroundiPhone.png */,
+				4F839A2F1475C4C3005E09B8 /* rapidSpriteSheetiPhone.png */,
+				4F839A301475C4C3005E09B8 /* rapidSpriteSheetiPhone.plist */,
+				4F839A311475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.png */,
+				4F839A321475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.plist */,
 				4F3603FF146DCD7400A4C48E /* Rapid */,
 				4F360212146DBF9000A4C48E /* Default.png */,
 				4F360214146DBF9000A4C48E /* fps_images.png */,
@@ -1057,6 +1098,8 @@
 		4F3603EC146DC0FA00A4C48E /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				4FEFE180147BF1BF003BE5E5 /* GameManager.h */,
+				4FEFE181147BF1BF003BE5E5 /* GameManager.m */,
 				4F3603D5146DBF9400A4C48E /* AppDelegate.h */,
 				4F3603D6146DBF9400A4C48E /* AppDelegate.mm */,
 			);
@@ -1153,6 +1196,17 @@
 				4F3603FD146DCD7000A4C48E /* rapid_anim4.png in Resources */,
 				4F3603FE146DCD7000A4C48E /* rapid_anim5.png in Resources */,
 				4F15381014731D24000F8A9A /* Rapid.plist in Resources */,
+				4F1538221474595E000F8A9A /* Level1Ground.png in Resources */,
+				4F15382414745ECF000F8A9A /* Level1Ground-hd.png in Resources */,
+				4F839A331475C4C3005E09B8 /* rapidSpriteSheetiPhone.png in Resources */,
+				4F839A341475C4C3005E09B8 /* rapidSpriteSheetiPhone.plist in Resources */,
+				4F839A351475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.png in Resources */,
+				4F839A361475C4C3005E09B8 /* rapidSpriteSheetiPhone-hd.plist in Resources */,
+				4F839A3D1475C8E1005E09B8 /* placeholderBackgroundiPhone-hd.png in Resources */,
+				4F839A3E1475C8E1005E09B8 /* placeholderBackgroundiPhone.png in Resources */,
+				4F6B77B1147C1B810017550E /* Level1-iPad.png in Resources */,
+				4F6B77B2147C1B810017550E /* Level1-hd.png in Resources */,
+				4F6B77B3147C1B810017550E /* Level1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1302,6 +1356,8 @@
 				4F28CD7B1472EC6F00E6BE4D /* GameObject.m in Sources */,
 				4F153805147314F1000F8A9A /* JumpingScene.mm in Sources */,
 				4F15380D14731A4F000F8A9A /* GameCharacter.m in Sources */,
+				4F839A3A1475C88C005E09B8 /* JumpingBackground.m in Sources */,
+				4FEFE182147BF1BF003BE5E5 /* GameManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

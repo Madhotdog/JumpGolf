@@ -23,4 +23,9 @@ typedef enum {
     kStanding,
 } CharStates;
 
+typedef enum {
+    kNoSceneLoaded = 0,
+    kJumpTest = 10,
+} SceneType;
+
 

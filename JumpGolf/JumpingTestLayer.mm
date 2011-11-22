@@ -10,6 +10,7 @@
 #import "Box2DSprite.h"
 #import "Rapid.h"
 #import "SimpleQueryCallback.h"
+#import "GameManager.h"
 
 
 @implementation JumpingTestLayer
@@ -36,7 +37,7 @@
     debugDraw->SetFlags(b2DebugDraw::e_shapeBit);
 }
 
--(void)createGround {
+/*-(void)createGround {
  CGSize winSize = [[CCDirector sharedDirector] winSize];
  float32 margin = 10.0f;
  b2Vec2 lowerLeft = b2Vec2(margin/PTM_RATIO, margin/PTM_RATIO);
@@ -65,11 +66,30 @@
  
  
  }
- 
+  */
 
 -(void)initWorld {
     b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
     world = new b2World(gravity, true);
+}
+
+-(void)followCharacter{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    CGSize levelSize = [[GameManager sharedGameManager] getDimensionsOfCurrentScene];
+    float fixedPosition = winSize.width/4;
+    float newX = fixedPosition - rapid.position.x;
+    //Mininum
+    if(newX > 0) {
+        newX = 0;
+    }
+    //Maximum
+    if (newX < -levelSize.width+winSize.width) {
+        newX = -levelSize.width+winSize.width;
+    }
+    CGPoint newPos = ccp(newX, self.position.y);
+    [self setPosition:newPos];   
+    
+    
 }
 
 -(void)update:(ccTime)dt {    
@@ -93,6 +113,7 @@
         [tempChar updateStateWithDeltaTime:dt 
                       andListOfGameObjects:listOfGameObjects]; 
     } 
+    [self followCharacter];
    
 }
 
@@ -107,6 +128,89 @@
      addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 
+-(void)createGround {
+    b2BodyDef groundBodyDef;
+    groundBodyDef.type = b2_staticBody;
+    groundBodyDef.position.Set(0,0);
+    groundBody = world->CreateBody(&groundBodyDef);
+} 
+
+- (void)createGroundEdgesWithVerts:(b2Vec2 *)verts numVerts:(int)num 
+                   spriteFrameName:(NSString *)spriteFrameName {
+    
+    CCSprite *ground = [CCSprite spriteWithFile:spriteFrameName];
+    ground.position = ccp(self.contentSize.width/2, 
+                          self.contentSize.height/2);
+    [self addChild:ground];
+
+    
+    b2PolygonShape groundShape;      
+    b2FixtureDef groundFixtureDef;
+    groundFixtureDef.shape = &groundShape;
+    groundFixtureDef.density = 0.0;
+    
+    for(int i = 0; i < num - 1; ++i) {
+        b2Vec2 offset = b2Vec2(self.contentSize.width/2/PTM_RATIO, 
+                               self.contentSize.height/2/PTM_RATIO);
+        b2Vec2 left = verts[i] + offset;
+        b2Vec2 right = verts[i+1] + offset;
+        groundShape.SetAsEdge(left, right);
+        groundBody->CreateFixture(&groundFixtureDef);    
+    }
+    
+    
+    
+    //CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CGSize levelSize = [[GameManager sharedGameManager] getDimensionsOfCurrentScene];
+    float32 margin = 1.0f;
+    b2Vec2 lowerLeft = b2Vec2(margin/PTM_RATIO, margin/PTM_RATIO);
+    b2Vec2 lowerRight = b2Vec2((levelSize.width-margin) /PTM_RATIO, margin/PTM_RATIO);
+    b2Vec2 upperRight = b2Vec2((levelSize.width-margin) /PTM_RATIO, (levelSize.height-margin)/  PTM_RATIO);
+    b2Vec2 upperLeft = b2Vec2((margin/PTM_RATIO), (levelSize.height-margin) / PTM_RATIO);
+    
+    //screen boundaries
+    
+    groundShape.SetAsEdge(lowerRight, upperRight);
+    groundBody->CreateFixture(&groundFixtureDef);
+    groundShape.SetAsEdge(lowerLeft, upperLeft);
+    groundBody->CreateFixture(&groundFixtureDef);
+    groundShape.SetAsEdge(upperLeft, upperRight);
+    groundBody->CreateFixture(&groundFixtureDef);
+    groundShape.SetAsEdge(lowerLeft, lowerRight);
+    groundBody->CreateFixture(&groundFixtureDef);
+
+    
+}
+
+- (void)createGroundLevel {
+
+    //row 1, col 1
+    int num = 16;
+    b2Vec2 verts[] = {
+        b2Vec2(-238.6f / PTM_RATIO, -55.3f / PTM_RATIO),
+        b2Vec2(-166.2f / PTM_RATIO, -51.8f / PTM_RATIO),
+        b2Vec2(-150.6f / PTM_RATIO, -70.2f / PTM_RATIO),
+        b2Vec2(-146.7f / PTM_RATIO, -103.1f / PTM_RATIO),
+        b2Vec2(-58.7f / PTM_RATIO, -104.1f / PTM_RATIO),
+        b2Vec2(-17.7f / PTM_RATIO, -9.0f / PTM_RATIO),
+        b2Vec2(28.6f / PTM_RATIO, 45.4f / PTM_RATIO),
+        b2Vec2(54.1f / PTM_RATIO, 47.9f / PTM_RATIO),
+        b2Vec2(54.1f / PTM_RATIO, 35.9f / PTM_RATIO),
+        b2Vec2(59.4f / PTM_RATIO, 29.2f / PTM_RATIO),
+        b2Vec2(67.5f / PTM_RATIO, 35.5f / PTM_RATIO),
+        b2Vec2(67.9f / PTM_RATIO, 47.9f / PTM_RATIO),
+        b2Vec2(93.0f / PTM_RATIO, 47.6f / PTM_RATIO),
+        b2Vec2(129.4f / PTM_RATIO, -27.4f / PTM_RATIO),
+        b2Vec2(195.2f / PTM_RATIO, -24.2f / PTM_RATIO),
+        b2Vec2(239.0f / PTM_RATIO, -80.8f / PTM_RATIO)
+    };
+
+    [self createGroundEdgesWithVerts:verts 
+                            numVerts:num spriteFrameName:@"Level1Ground.png"];   
+}
+
+
+
 - (id)init
 {
     self = [super init];
@@ -117,13 +221,17 @@
         [self setupDebugDraw]; 
         [self scheduleUpdate];
         [self createGround];
+        [self createGroundLevel];
         self.isTouchEnabled = YES; 
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] 
-         addSpriteFramesWithFile:@"JumpSceneSpriteSheet.plist"];          // 1
+         addSpriteFramesWithFile:@"rapidSpriteSheetiPhone.plist"];          // 1
         sceneSpriteBatchNode = 
-        [CCSpriteBatchNode batchNodeWithFile:@"JumpSceneSpriteSheet.png"];// 2
+        [CCSpriteBatchNode batchNodeWithFile:@"rapidSpriteSheetiPhone.png"];// 2
         [self addChild:sceneSpriteBatchNode z:0];                // 3
+        
+        
+        //levelSize = [[GameManager sharedGameManager] getDimensionsOfCurrentScene];
         
         /*
         CCSprite *rapid = [CCSprite spriteWithFile:@"rapid_anim1.png"];
@@ -159,6 +267,7 @@
 
         [self createCharAtLocation:
          ccp(winSize.width/4, winSize.width*0.3)];
+        
 
          
     }
