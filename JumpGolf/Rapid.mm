@@ -38,12 +38,12 @@
      self.contentSize.height/2/PTM_RATIO/4);  
 */
     b2CircleShape shape;
-    shape.m_radius =self.contentSize.width/2/PTM_RATIO/2;
+    shape.m_radius =self.contentSize.width/4/PTM_RATIO;
     fixtureDef.shape = &shape;
     
     
-    fixtureDef.density = 0.5;
-    fixtureDef.friction = 0.01;
+    fixtureDef.density = 0.1;
+    fixtureDef.friction = 0.2;
     fixtureDef.restitution = 0.3;
     
     body->CreateFixture(&fixtureDef);  

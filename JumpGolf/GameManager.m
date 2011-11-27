@@ -43,7 +43,7 @@ static GameManager* _sharedGameManager = nil;
     switch (currentScene) {
         case kNoSceneLoaded: 
         case kJumpTest:
-            levelSize = CGSizeMake(screenSize.width * 4.0f, screenSize.height * 2.0f);
+            levelSize = CGSizeMake(screenSize.width * 2.0f, screenSize.height * 2.0f);
             break;
             
         default:

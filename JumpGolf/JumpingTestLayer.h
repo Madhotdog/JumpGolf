@@ -23,6 +23,7 @@
     b2MouseJoint * mouseJoint;
     CCSpriteBatchNode *groundSpriteBatchNode;
     //CGSize levelSize;
+        CCParallaxNode *parallaxNode;
 
     
 }
