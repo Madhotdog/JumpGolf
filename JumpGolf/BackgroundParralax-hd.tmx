@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="12" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="HillsForeground" tilewidth="64" tileheight="64" spacing="1" margin="1">
+  <image source="HillsForeground-hd.png" width="741" height="321"/>
+ </tileset>
+ <tileset firstgid="45" name="HillsBackground" tilewidth="64" tileheight="64" spacing="1" margin="1">
+  <image source="HillsBackground-hd.png" width="515" height="173"/>
+ </tileset>
+ <layer name="HillsBackground" width="32" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKRCXSBWA+I9YHYAIgN6SxmAsSmQGwGxOZAbEFnMQA0Egyb
+  </data>
+ </layer>
+ <layer name="HillsForeground" width="32" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztyjkKgEAQRNFJ1ERxAXEZZxT35f7384MGXqCNuuBBBd8YnU6nexYgRPRTFyN5f4oMOYpPUwp2FWo0aGHRwcGjxyDYjZgwY8GKDTsOnLgEuxv3XwnQ
+  </data>
+ </layer>
+</map>

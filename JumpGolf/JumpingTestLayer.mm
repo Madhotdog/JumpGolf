@@ -38,11 +38,40 @@
 }
 
 -(void)createParralaxLayers {
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    //CGSize screenSize = [[CCDirector sharedDirector] winSize];
     CGSize levelSize = [[GameManager sharedGameManager] 
                         getDimensionsOfCurrentScene];
     
-    CCSprite* hillsForeground = [CCSprite spriteWithFile:@"HillsForeground.png"];
+    
+    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"BackgroundParralax.tmx"];
+    
+    
+    CCTMXLayer * hillsForeground = [tileMapNode layerNamed:@"HillsForeground"];
+    
+    CCTMXLayer * hillsBackground = [tileMapNode layerNamed:@"HillsBackground"];
+    
+    parallaxNode = [CCParallaxNode node];
+    [parallaxNode 
+     setPosition:ccp(levelSize.width/2.0f,levelSize.height/2.0f)];
+    
+    [hillsForeground retain];
+    [hillsForeground removeFromParentAndCleanup:NO];
+    [hillsForeground setAnchorPoint:CGPointMake(0.5f,0.5f)];
+    [parallaxNode addChild:hillsForeground z:10 parallaxRatio:ccp(0.5f,0.2f) 
+            positionOffset:ccp(levelSize.width/2 * 0.5f,levelSize.height/2 * 0.3f)];
+    [hillsForeground release];
+    
+    [hillsBackground retain];
+    [hillsBackground removeFromParentAndCleanup:NO];
+    [hillsBackground setAnchorPoint:CGPointMake(0.5f,0.5f)];
+    [parallaxNode addChild:hillsBackground z:5 parallaxRatio:ccp(0.2f,0.1f) 
+            positionOffset:ccp(levelSize.width/2.0f * 0.8f,levelSize.height/2 * 0.4f)];
+    [hillsBackground release];
+    
+    [self addChild:parallaxNode z:1];
+    
+    
+    /* CCSprite* hillsForeground = [CCSprite spriteWithFile:@"HillsForeground.png"];
     CCSprite* hillsBackground = [CCSprite spriteWithFile:@"HillsBackground.png"];
     
     parallaxNode = [CCParallaxNode node];
@@ -56,7 +85,7 @@
     [parallaxNode addChild:hillsBackground z:5 parallaxRatio:ccp(0.2f,0.1f) 
             positionOffset:ccp(0.0f,0.0f)];
     
-    [self addChild:parallaxNode z:1];
+    [self addChild:parallaxNode z:1]; */
     
     
 }

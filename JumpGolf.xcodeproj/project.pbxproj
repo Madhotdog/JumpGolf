@@ -11,8 +11,6 @@
 		4F15380D14731A4F000F8A9A /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F15380C14731A4E000F8A9A /* GameCharacter.m */; };
 		4F15381014731D24000F8A9A /* Rapid.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F15380F14731D24000F8A9A /* Rapid.plist */; };
 		4F28CD7B1472EC6F00E6BE4D /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F28CD7A1472EC6F00E6BE4D /* GameObject.m */; };
-		4F29A54B14814C1B00A38F61 /* HillsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F29A54914814C1B00A38F61 /* HillsBackground.png */; };
-		4F29A54C14814C1B00A38F61 /* HillsForeground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F29A54A14814C1B00A38F61 /* HillsForeground.png */; };
 		4F360201146DBF9000A4C48E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360200146DBF9000A4C48E /* QuartzCore.framework */; };
 		4F360203146DBF9000A4C48E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360202146DBF9000A4C48E /* OpenGLES.framework */; };
 		4F360205146DBF9000A4C48E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F360204146DBF9000A4C48E /* OpenAL.framework */; };
@@ -182,6 +180,12 @@
 		4F839A3E1475C8E1005E09B8 /* placeholderBackgroundiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F839A3C1475C8E1005E09B8 /* placeholderBackgroundiPhone.png */; };
 		4F9C35FB147FE1110011A986 /* Level1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C35F9147FE1110011A986 /* Level1-hd.png */; };
 		4F9C35FC147FE1110011A986 /* Level1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F9C35FA147FE1110011A986 /* Level1.png */; };
+		4FACC0BB1482D78800371D14 /* HillsForeground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FACC0B51482D78800371D14 /* HillsForeground.png */; };
+		4FACC0BC1482D78800371D14 /* BackgroundParralax.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4FACC0B61482D78800371D14 /* BackgroundParralax.tmx */; };
+		4FACC0BD1482D78800371D14 /* HillsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FACC0B71482D78800371D14 /* HillsBackground.png */; };
+		4FACC0BE1482D78800371D14 /* HillsForeground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FACC0B81482D78800371D14 /* HillsForeground-hd.png */; };
+		4FACC0BF1482D78800371D14 /* HillsBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FACC0B91482D78800371D14 /* HillsBackground-hd.png */; };
+		4FACC0C01482D78800371D14 /* BackgroundParralax-hd.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 4FACC0BA1482D78800371D14 /* BackgroundParralax-hd.tmx */; };
 		4FD194CC1471D16500F6FE4E /* Box2DSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FD194CB1471D16500F6FE4E /* Box2DSprite.mm */; };
 		4FEFE182147BF1BF003BE5E5 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFE181147BF1BF003BE5E5 /* GameManager.m */; };
 /* End PBXBuildFile section */
@@ -194,8 +198,6 @@
 		4F15380F14731D24000F8A9A /* Rapid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Rapid.plist; sourceTree = "<group>"; };
 		4F28CD791472EC6F00E6BE4D /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
 		4F28CD7A1472EC6F00E6BE4D /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		4F29A54914814C1B00A38F61 /* HillsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HillsBackground.png; sourceTree = "<group>"; };
-		4F29A54A14814C1B00A38F61 /* HillsForeground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HillsForeground.png; sourceTree = "<group>"; };
 		4F3601FC146DBF9000A4C48E /* JumpGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F360200146DBF9000A4C48E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4F360202146DBF9000A4C48E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -527,6 +529,12 @@
 		4F839A3C1475C8E1005E09B8 /* placeholderBackgroundiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderBackgroundiPhone.png; sourceTree = "<group>"; };
 		4F9C35F9147FE1110011A986 /* Level1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Level1-hd.png"; sourceTree = "<group>"; };
 		4F9C35FA147FE1110011A986 /* Level1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Level1.png; sourceTree = "<group>"; };
+		4FACC0B51482D78800371D14 /* HillsForeground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HillsForeground.png; sourceTree = "<group>"; };
+		4FACC0B61482D78800371D14 /* BackgroundParralax.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BackgroundParralax.tmx; sourceTree = "<group>"; };
+		4FACC0B71482D78800371D14 /* HillsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HillsBackground.png; sourceTree = "<group>"; };
+		4FACC0B81482D78800371D14 /* HillsForeground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HillsForeground-hd.png"; sourceTree = "<group>"; };
+		4FACC0B91482D78800371D14 /* HillsBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HillsBackground-hd.png"; sourceTree = "<group>"; };
+		4FACC0BA1482D78800371D14 /* BackgroundParralax-hd.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BackgroundParralax-hd.tmx"; sourceTree = "<group>"; };
 		4FD194CA1471D16500F6FE4E /* Box2DSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DSprite.h; sourceTree = "<group>"; };
 		4FD194CB1471D16500F6FE4E /* Box2DSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DSprite.mm; sourceTree = "<group>"; };
 		4FD194D21471DA5400F6FE4E /* SimpleQueryCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleQueryCallback.h; sourceTree = "<group>"; };
@@ -626,8 +634,7 @@
 		4F360211146DBF9000A4C48E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4F29A54914814C1B00A38F61 /* HillsBackground.png */,
-				4F29A54A14814C1B00A38F61 /* HillsForeground.png */,
+				4FACC0AF1482D6AC00371D14 /* HillsParralaxFiles */,
 				4F9C35F9147FE1110011A986 /* Level1-hd.png */,
 				4F9C35FA147FE1110011A986 /* Level1.png */,
 				4F839A3B1475C8E1005E09B8 /* placeholderBackgroundiPhone-hd.png */,
@@ -1117,6 +1124,19 @@
 			name = Rapid;
 			sourceTree = "<group>";
 		};
+		4FACC0AF1482D6AC00371D14 /* HillsParralaxFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4FACC0B51482D78800371D14 /* HillsForeground.png */,
+				4FACC0B61482D78800371D14 /* BackgroundParralax.tmx */,
+				4FACC0B71482D78800371D14 /* HillsBackground.png */,
+				4FACC0B81482D78800371D14 /* HillsForeground-hd.png */,
+				4FACC0B91482D78800371D14 /* HillsBackground-hd.png */,
+				4FACC0BA1482D78800371D14 /* BackgroundParralax-hd.tmx */,
+			);
+			name = HillsParralaxFiles;
+			sourceTree = "<group>";
+		};
 		4FD194CD1471D17800F6FE4E /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
@@ -1201,8 +1221,12 @@
 				4F839A3E1475C8E1005E09B8 /* placeholderBackgroundiPhone.png in Resources */,
 				4F9C35FB147FE1110011A986 /* Level1-hd.png in Resources */,
 				4F9C35FC147FE1110011A986 /* Level1.png in Resources */,
-				4F29A54B14814C1B00A38F61 /* HillsBackground.png in Resources */,
-				4F29A54C14814C1B00A38F61 /* HillsForeground.png in Resources */,
+				4FACC0BB1482D78800371D14 /* HillsForeground.png in Resources */,
+				4FACC0BC1482D78800371D14 /* BackgroundParralax.tmx in Resources */,
+				4FACC0BD1482D78800371D14 /* HillsBackground.png in Resources */,
+				4FACC0BE1482D78800371D14 /* HillsForeground-hd.png in Resources */,
+				4FACC0BF1482D78800371D14 /* HillsBackground-hd.png in Resources */,
+				4FACC0C01482D78800371D14 /* BackgroundParralax-hd.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

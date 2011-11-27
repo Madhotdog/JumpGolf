@@ -22,8 +22,8 @@
     Rapid *rapid;
     b2MouseJoint * mouseJoint;
     CCSpriteBatchNode *groundSpriteBatchNode;
-    //CGSize levelSize;
-        CCParallaxNode *parallaxNode;
+    CCParallaxNode *parallaxNode;
+    CCTMXTiledMap *tileMapNode;
 
     
 }
