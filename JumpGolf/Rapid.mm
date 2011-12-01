@@ -21,6 +21,8 @@
     
 }
 
+
+
 - (void)createBodyAtLocation:(CGPoint)location {
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
@@ -48,6 +50,13 @@
     
     body->CreateFixture(&fixtureDef);  
     
+}
+
+-(void)jump:(float)xComponent withYComponent:(float)yComponent  {
+    float32 mass = body->GetMass();
+    b2Vec2 impulse = b2Vec2(mass*xComponent/20, mass*yComponent/20);
+    b2Vec2 point = body->GetWorldCenter();
+    body->ApplyLinearImpulse(impulse, point);
 }
 
 -(void)changeState:(CharStates)newState{

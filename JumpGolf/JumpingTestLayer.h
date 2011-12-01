@@ -24,6 +24,8 @@
     CCSpriteBatchNode *groundSpriteBatchNode;
     CCParallaxNode *parallaxNode;
     CCTMXTiledMap *tileMapNode;
+    CGPoint touchStart;
+    
 
     
 }

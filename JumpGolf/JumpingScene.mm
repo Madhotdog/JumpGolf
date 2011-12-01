@@ -20,7 +20,7 @@
         [self addChild:backgroundLayer];
         JumpingTestLayer *layer = [JumpingTestLayer node];
         [self addChild:layer];
-        //[layer setScale:0.2f];
+        //[layer setScale:0.5f];
     }
     
     return self;

@@ -57,37 +57,18 @@
     [hillsForeground retain];
     [hillsForeground removeFromParentAndCleanup:NO];
     [hillsForeground setAnchorPoint:CGPointMake(0.5f,0.5f)];
-    [parallaxNode addChild:hillsForeground z:10 parallaxRatio:ccp(0.5f,0.2f) 
-            positionOffset:ccp(levelSize.width/2 * 0.5f,levelSize.height/2 * 0.3f)];
+    [parallaxNode addChild:hillsForeground z:10 parallaxRatio:ccp(0.5f,0.1f) 
+            positionOffset:ccp(levelSize.width/2 * 0.5f,hillsForeground.contentSize.height/2 * 0.7f)];
     [hillsForeground release];
     
     [hillsBackground retain];
     [hillsBackground removeFromParentAndCleanup:NO];
     [hillsBackground setAnchorPoint:CGPointMake(0.5f,0.5f)];
-    [parallaxNode addChild:hillsBackground z:5 parallaxRatio:ccp(0.2f,0.1f) 
-            positionOffset:ccp(levelSize.width/2.0f * 0.8f,levelSize.height/2 * 0.4f)];
+    [parallaxNode addChild:hillsBackground z:5 parallaxRatio:ccp(0.2f,0.05f) 
+            positionOffset:ccp(levelSize.width/2.0f * 0.8f,hillsBackground.contentSize.height/2 * 0.8f)];
     [hillsBackground release];
     
     [self addChild:parallaxNode z:1];
-    
-    
-    /* CCSprite* hillsForeground = [CCSprite spriteWithFile:@"HillsForeground.png"];
-    CCSprite* hillsBackground = [CCSprite spriteWithFile:@"HillsBackground.png"];
-    
-    parallaxNode = [CCParallaxNode node];
-    [parallaxNode 
-     setPosition:ccp(levelSize.width/2.0f,levelSize.height/2.0f)];
-    
-    // foreground hill move faster
-    [parallaxNode addChild:hillsForeground z:10 parallaxRatio:ccp(0.5f,0.2f) 
-            positionOffset:ccp(-hillsForeground.contentSize.width/3,screenSize.height*0.1)];
-    
-    [parallaxNode addChild:hillsBackground z:5 parallaxRatio:ccp(0.2f,0.1f) 
-            positionOffset:ccp(0.0f,0.0f)];
-    
-    [self addChild:parallaxNode z:1]; */
-    
-    
 }
 
 -(void)initWorld {
@@ -104,17 +85,17 @@
     float fixedPositionY = winSize.height/2;
     float newY = fixedPositionY - rapid.position.y;
     //Mininum
-    if(newX > 0) {
+    if(newX >= 0) {
         newX = 0;
     }
-    if(newY > 0) {
+    if(newY >= 0) {
         newY = 0;
     }
     //Maximum
-    if (newX < -levelSize.width+winSize.width) {
+    if (newX <= -levelSize.width+winSize.width) {
         newX = -levelSize.width+winSize.width;
     }
-    if (newY < -levelSize.height+winSize.height) {
+    if (newY <= -levelSize.height+winSize.height) {
         newY = -levelSize.height+winSize.height;
     }
     CGPoint newPos = ccp(newX, newY);
@@ -133,11 +114,11 @@
             Box2DSprite *sprite = (Box2DSprite *) b->GetUserData();
             sprite.position = ccp(b->GetPosition().x * PTM_RATIO, 
                                   b->GetPosition().y * PTM_RATIO);
-           // sprite.rotation = 
-           // CC_RADIANS_TO_DEGREES(b->GetAngle() * -1);
+            // sprite.rotation = 
+            // CC_RADIANS_TO_DEGREES(b->GetAngle() * -1);
         }        
     }
-     
+    
     
     CCArray *listOfGameObjects = [sceneSpriteBatchNode children]; 
     for (GameCharacter *tempChar in listOfGameObjects) { 
@@ -145,12 +126,12 @@
                       andListOfGameObjects:listOfGameObjects]; 
     } 
     [self followCharacter];
-   
+    
 }
 
 - (void)createCharAtLocation:(CGPoint)location {
     rapid = [[[Rapid alloc] 
-             initWithWorld:world atLocation:location] autorelease];
+              initWithWorld:world atLocation:location] autorelease];
     [sceneSpriteBatchNode addChild:rapid z:50 tag:kRapidType];
 }
 
@@ -169,13 +150,32 @@
 - (void)createGroundEdgesWithVerts:(b2Vec2 *)verts numVerts:(int)num 
                    spriteFrameName:(NSString *)spriteFrameName {
     
+    
+    
+    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:spriteFrameName];
+    
+    
+    CCTMXLayer * ground = [tileMapNode layerNamed:@"Tile Layer 1"];
+    
     //NEEDS CHANGING
-    CCSprite *ground = [CCSprite spriteWithFile:spriteFrameName];
+    //Give bad transparencys 
+    //[CCTexture2D setDefaultAlphaPixelFormat:
+    // kCCTexture2DPixelFormat_RGB5A1];
+    //CCSprite *ground = [CCSprite spriteWithFile:spriteFrameName];
     CGSize levelSize = [[GameManager sharedGameManager] getDimensionsOfCurrentScene];
-    ground.position = ccp(levelSize.width/2, 
-                          ground.contentSize.height/2);
+    //ground.position = ccp((levelSize.width/2)-2, 
+    //                      ground.contentSize.height/2);
+    
+    [ground retain];
+    [ground removeFromParentAndCleanup:NO];
+    [ground setAnchorPoint:CGPointMake(0.5f,0.5f)];
+    [ground setPosition:ccp(ground.contentSize.width/2, ground.contentSize.height/2)];
     [self addChild:ground z:30];
-
+    [ground release];
+    
+    
+    //[self addChild:ground z:30];
+    
     
     b2PolygonShape groundShape;      
     b2FixtureDef groundFixtureDef;
@@ -183,7 +183,7 @@
     groundFixtureDef.density = 0.0;
     
     for(int i = 0; i < num - 1; ++i) {
-        b2Vec2 offset = b2Vec2(levelSize.width/2/PTM_RATIO, 
+        b2Vec2 offset = b2Vec2(ground.contentSize.width/2/PTM_RATIO, 
                                ground.contentSize.height/2/PTM_RATIO);
         b2Vec2 left = verts[i] + offset;
         b2Vec2 right = verts[i+1] + offset;
@@ -211,39 +211,40 @@
     groundBody->CreateFixture(&groundFixtureDef);
     groundShape.SetAsEdge(lowerLeft, lowerRight);
     groundBody->CreateFixture(&groundFixtureDef);
-
+    
     
 }
 
 - (void)createGroundLevel {
-
+    
     //row 1, col 1
-    int num = 18;
+    int num = 17;
     b2Vec2 verts[] = {
-        b2Vec2(-957.4f / 100.0, -120.2f / 100.0),
-        b2Vec2(-653.4f / 100.0, -101.8f / 100.0),
-        b2Vec2(-586.9f / 100.0, -189.5f / 100.0),
-        b2Vec2(-577.0f / 100.0, -305.5f / 100.0),
-        b2Vec2(-233.3f / 100.0, -315.4f / 100.0),
-        b2Vec2(-62.2f / 100.0, 77.8f / 100.0),
-        b2Vec2(120.2f / 100.0, 285.7f / 100.0),
-        b2Vec2(196.6f / 100.0, 287.1f / 100.0),
-        b2Vec2(202.2f / 100.0, 233.3f / 100.0),
-        b2Vec2(219.2f / 100.0, 210.7f / 100.0),
-        b2Vec2(244.7f / 100.0, 203.6f / 100.0),
-        b2Vec2(274.4f / 100.0, 217.8f / 100.0),
-        b2Vec2(284.3f / 100.0, 248.9f / 100.0),
-        b2Vec2(287.1f / 100.0, 292.7f / 100.0),
-        b2Vec2(381.8f / 100.0, 292.7f / 100.0),
-        b2Vec2(514.8f / 100.0, -0.0f / 100.0),
-        b2Vec2(779.2f / 100.0, 11.3f / 100.0),
-        b2Vec2(956.0f / 100.0, -217.8f / 100.0)
+        b2Vec2(-956.0f / 100.0, -225.6f / 100.0),
+        b2Vec2(-660.4f / 100.0, -205.8f / 100.0),
+        b2Vec2(-589.7f / 100.0, -297.7f / 100.0),
+        b2Vec2(-578.4f / 100.0, -416.5f / 100.0),
+        b2Vec2(-229.1f / 100.0, -417.9f / 100.0),
+        b2Vec2(-62.2f / 100.0, -27.6f / 100.0),
+        b2Vec2(125.9f / 100.0, 180.3f / 100.0),
+        b2Vec2(199.4f / 100.0, 181.7f / 100.0),
+        b2Vec2(213.5f / 100.0, 112.4f / 100.0),
+        b2Vec2(251.7f / 100.0, 98.3f / 100.0),
+        b2Vec2(281.4f / 100.0, 108.2f / 100.0),
+        b2Vec2(289.9f / 100.0, 142.1f / 100.0),
+        b2Vec2(295.6f / 100.0, 190.2f / 100.0),
+        b2Vec2(379.0f / 100.0, 186.0f / 100.0),
+        b2Vec2(514.8f / 100.0, -111.0f / 100.0),
+        b2Vec2(780.6f / 100.0, -99.7f / 100.0),
+        b2Vec2(954.6f / 100.0, -326.0f / 100.0)
     };
     
 
 
+    
+    
     [self createGroundEdgesWithVerts:verts 
-                            numVerts:num spriteFrameName:@"Level1.png"];   
+                            numVerts:num spriteFrameName:@"Level1TileMap.tmx"];   
 }
 
 
@@ -260,20 +261,21 @@
         [self createParralaxLayers];
         [self createGround];
         [self createGroundLevel];
-
+        
         self.isTouchEnabled = YES; 
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] 
          addSpriteFramesWithFile:@"rapidSpriteSheetiPhone.plist"];          
         sceneSpriteBatchNode = 
         [CCSpriteBatchNode batchNodeWithFile:@"rapidSpriteSheetiPhone.png"];
-        [self addChild:sceneSpriteBatchNode z:2];                
-
-        [self createCharAtLocation:
-         ccp(winSize.width/4, winSize.height*1.5)];
         
-
-         
+        [self addChild:sceneSpriteBatchNode z:2];                
+        
+        [self createCharAtLocation:
+         ccp(winSize.width/4, winSize.height*0.9)];
+        
+        
+        
     }
     
     return self;
@@ -293,72 +295,99 @@
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
 }
 
+
+                            
+
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     
+    //get the touch location 
     CGPoint touchLocation = [touch locationInView:[touch view]];
     touchLocation = [[CCDirector sharedDirector] 
                      convertToGL:touchLocation];
     touchLocation = [self convertToNodeSpace:touchLocation];
-    b2Vec2 locationWorld = 
-    b2Vec2(touchLocation.x/PTM_RATIO, touchLocation.y/PTM_RATIO);
+    //and store it for later calculations
+    touchStart = touchLocation;
     
-    //    [self createBoxAtLocation:touchLocation 
-    //                     withSize:CGSizeMake(50, 50)];
-    //  
+    //Debug mouse dragging
     
-    
-    b2AABB aabb;
-    b2Vec2 delta = b2Vec2(1.0/PTM_RATIO, 1.0/PTM_RATIO);
-    aabb.lowerBound = locationWorld - delta;
-    aabb.upperBound = locationWorld + delta;
-    SimpleQueryCallback callback(locationWorld);
-    world->QueryAABB(&callback, aabb);
-    
-    if (callback.fixtureFound) {
+    if(DEBUG_INPUT_FLAG == 1){
         
-        b2Body *body = callback.fixtureFound->GetBody();
+
+        b2Vec2 locationWorld = 
+        b2Vec2(touchLocation.x/PTM_RATIO, touchLocation.y/PTM_RATIO);
         
-        Box2DSprite *sprite = (Box2DSprite *) body->GetUserData();
-        if (sprite == NULL) return FALSE;
-        if([sprite mouseJointBegan] == FALSE) {
-            return FALSE;
-        } else {
+        //    [self createBoxAtLocation:touchLocation 
+        //                     withSize:CGSizeMake(50, 50)];
+        //  
+        
+        
+        b2AABB aabb;
+        b2Vec2 delta = b2Vec2(1.0/PTM_RATIO, 1.0/PTM_RATIO);
+        aabb.lowerBound = locationWorld - delta;
+        aabb.upperBound = locationWorld + delta;
+        SimpleQueryCallback callback(locationWorld);
+        world->QueryAABB(&callback, aabb);
+        
+        if (callback.fixtureFound) {
             
-            b2MouseJointDef mouseJointDef;
-            mouseJointDef.bodyA = groundBody;
-            mouseJointDef.bodyB = body;
-            mouseJointDef.target = locationWorld;
-            mouseJointDef.maxForce = 100 * body->GetMass();
-            mouseJointDef.collideConnected = true;
+            b2Body *body = callback.fixtureFound->GetBody();
             
-            mouseJoint = (b2MouseJoint *) world->CreateJoint(&mouseJointDef);
-            body->SetAwake(true);
-            return YES;
+            Box2DSprite *sprite = (Box2DSprite *) body->GetUserData();
+            if (sprite == NULL) return FALSE;
+            if([sprite mouseJointBegan] == FALSE) {
+                return FALSE;
+            } else {
+                
+                b2MouseJointDef mouseJointDef;
+                mouseJointDef.bodyA = groundBody;
+                mouseJointDef.bodyB = body;
+                mouseJointDef.target = locationWorld;
+                mouseJointDef.maxForce = 100 * body->GetMass();
+                mouseJointDef.collideConnected = true;
+                
+                mouseJoint = (b2MouseJoint *) world->CreateJoint(&mouseJointDef);
+                body->SetAwake(true);
+                return YES;
+            }
+            
         }
-        
-    } else {        
-        //        [self createBoxAtLocation:touchLocation 
-        //                         withSize:CGSizeMake(50, 50)];
     }
+    
+    
+    //[rapid jump];
+    
     return TRUE;
     
 }
 
 -(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLocation = [touch locationInView:[touch view]];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    touchLocation = [self convertToNodeSpace:touchLocation];
-    b2Vec2 locationWorld = b2Vec2(touchLocation.x/PTM_RATIO, touchLocation.y/PTM_RATIO);
-    if(mouseJoint) {
-        mouseJoint->SetTarget(locationWorld);
+    if(DEBUG_INPUT_FLAG == 1){
+        CGPoint touchLocation = [touch locationInView:[touch view]];
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+        touchLocation = [self convertToNodeSpace:touchLocation];
+        b2Vec2 locationWorld = b2Vec2(touchLocation.x/PTM_RATIO, touchLocation.y/PTM_RATIO);
+        if(mouseJoint) {
+            mouseJoint->SetTarget(locationWorld);
+        }
     }
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint touchLocation = [touch locationInView:[touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    float xComponent = touchLocation.x - touchStart.x;
+    float yComponent = touchLocation.y - touchStart.y;
+    
+    [rapid jump:xComponent withYComponent:yComponent];
+    
     if(mouseJoint){
         world->DestroyJoint(mouseJoint);
         mouseJoint = NULL;
     }
+    
+    
 }
 
 

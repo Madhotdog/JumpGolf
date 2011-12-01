@@ -7,6 +7,9 @@
 //
 
 #define PTM_RATIO ((UI_USER_INTERFACE_IDIOM() ==  UIUserInterfaceIdiomPad) ? 100.0 : 50.0)
+#define DEBUG_INPUT_FLAG 0
+#define CONTROLL_INPUT_TYPE 1
+
 
 typedef enum {
     kObjectTypeNone,
@@ -16,7 +19,7 @@ typedef enum {
     kHoleType,
 } GameObjectType;
 
-typedef enum {
+typedef enum {   
     kLanding,
     kJumping,
     kSpinning,

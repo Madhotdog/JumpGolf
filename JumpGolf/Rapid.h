@@ -21,6 +21,7 @@
 }
 
 - (id)initWithWorld:(b2World *)world atLocation:(CGPoint)location;
+-(void)jump:(float)xComponent withYComponent:(float)yComponent; 
 @property (nonatomic, retain) CCAnimation *jumpingAnim;
 @property (nonatomic, retain) CCAnimation *spinningAnim;
 @property (nonatomic, retain) CCAnimation *landingAnim;
